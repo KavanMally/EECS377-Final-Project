@@ -1,0 +1,47 @@
+#:kivy 1.9
+
+RelativeLayout:
+
+  AnchorLayout:
+    anchor_x: 'left'
+    anchor_y: 'top'
+    id: "topleft"
+    #Label:
+    #  text: 'rain'
+    Image:
+      size_hint: 0.5, 0.5
+      #size: 100, 100
+      source: 'images/umbrella_active.png' if not app.rain else 'images/umbrella_inactive.png'
+      id: "rain"
+  AnchorLayout:
+    anchor_x: 'right'
+    anchor_y: 'top' 
+    id: "topright"
+    #Label: 
+    #  text: 'cold'
+    Image:
+      size_hint: .5, .5
+      #size: 50, 50
+      #source: 'images/power_icon_light.png'
+      source: 'images/coat_active.png' if app.temperature > 60 else 'images/coat_inactive.png'
+      id: "cold"
+  AnchorLayout:
+    anchor_x: 'left'
+    anchor_y: 'bottom'
+    id: "bottomleft"
+    #Label:
+    #  text: 'snow'
+    Image:
+      size_hint: .5, .5
+      #size: 50, 50
+      source: 'images/snow_active.png' if app.snow else 'images/snow_inactive.png'
+      id: "snow"
+  FloatLayout:
+    #anchor_x: 'right'
+    #anchor_y: 'bottom'
+    id: "bottomright"
+    Label:
+      text: "Min:\n" + str(app.temperature) + "*"
+      pos: 75, -100
+      id: "temperature"
+      font_size: 30
